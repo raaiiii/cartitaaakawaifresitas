@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Carta de Amor</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Roboto:wght@400;500&display=swap');
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Roboto', sans-serif;
+      min-height: 100vh;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    /* Fondo con imagen principal */
+    body {
+      background-image: url('https://i.pinimg.com/736x/a3/b1/a0/a3b1a04b48c251b73c9b62ea5db54ee7.jpg');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 40px 20px;
+    }
+
+    /* Fresas flotantes */
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url('https://images.icon-icons.com/1808/PNG/512/fruit-strawberry_115249.png');
+      background-size: 120px;
+      background-repeat: repeat;
+      opacity: 0.08;
+      animation: moverFresas 80s linear infinite;
+      z-index: -2;
+      pointer-events: none;
+    }
+
+    @keyframes moverFresas {
+      0% { background-position: 0 0; }
+      100% { background-position: 600px 1200px; }
+    }
+
+    .wrapper {
+      width: 100%;
+      max-width: 600px;
+    }
+
+    .carta {
+      background: rgba(255, 182, 193, 0.85); /* rosa pastel con transparencia */
+      padding: 30px 25px;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+      width: 100%;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .carta::before {
+      content: '';
+      position: absolute;
+      width: 200%;
+      height: 200%;
+      top: -50%;
+      left: -50%;
+      background: radial-gradient(circle, rgba(255,192,203,0.2) 0%, transparent 70%);
+      animation: girar 20s linear infinite;
+      z-index: 0;
+    }
+
+    @keyframes girar {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    .contenido {
+      position: relative;
+      z-index: 1;
+      color: #333;
+      line-height: 1.6;
+      font-size: 16px;
+    }
+
+    .contenido .firma {
+      margin-top: 30px;
+      font-family: 'Great Vibes', cursive;
+      font-size: 26px;
+      color: #d6336c;
+    }
+
+    .tipo {
+      opacity: 0;
+      display: inline-block;
+    }
+
+    @media (min-width: 768px) {
+      .contenido { font-size: 18px; }
+      .contenido .firma { font-size: 28px; }
+      .carta { padding: 40px 50px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrapper">
+    <div class="carta">
+      <div class="contenido" id="textoCarta">
+        <p id="line1" class="tipo">Hola mi niña hermosa</p>
+        <p id="line2" class="tipo">Qro decirte que me perdones si me he portado mal, seco muy seco, tengo muchas cosas en la cabeza, me duele que estemos lejos porque yo te extraño demasiado como no te lo imaginas, pero perdoname si hago todo aburrido, me duele mi cabezita pq son cosas que me guardo pero jamas te dire pq eso pues antes jiji y ya no tiene caso q siga con lo mismo :c, te prometo que no es pq me aburri pq note amo pq ya no qro, pq si qro todo contigo amor, de verdad que lo qro, solo que me afecta lo mas minimo es que igual ando bien sensible jejaej pienso mucho y todooo lo pienso mal perdoname te prometo que te tratare como princesa aunq yo siento que si lo hago :((</p>
+        <p id="line3" class="tipo">qro q seamos eternos qro q mis hijos salgan con tus ojitos divinos, qro todo contigoooooo eres perfecta y inigualable, me encantas, me gustas, porfavor quedate conmigo siempre, te amo tantisimo</p>
+        <p id="line4" class="tipo">te digo algo jejsej roncaste bien lindo esta noche, le hiciste bonito asi lindo, hermoso jejasjesa, me encanta que duermas conmigo porque nose me hace sentir seguro que estes conmigo, q te quedes conmigo me hace feliz, espero a ti igual te haga feliz estar conmigo :33</p>
+        <p id="line5" class="tipo">Te prometo tratarte lo mejor posible para poder estar bien los dos, no qro prometerlo y no cumplirlo pq lo hare, lo hare mi vida qro q seamos los 2 denuevo como en el principio</p>
+        <p id="line6" class="tipo">Mi niña qro q entiendas que eres todo para mi y que jamas me aburrire de ti, perdon si soy un mal novio :c, solo qro q seamos tu y yo en este mundo, qro q sea asi siempre siempre, pq de verdad que qro todo contigo</p>
+        <p id="line6" class="tipo">Te hice esta nueva cartita pq me dijiste que le ponga fresitas :3 y pq te lo prometi q haria otro estilo y pues me tarde toda la nochesita para que estes feliz si la lees espero te guste y tambien estoy pensando en otro estilo de carta para cuando tengamos mas meses :3 te amoooo</p>
+        <p class="firma tipo" id="firma">[Edu]</p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const lines = document.querySelectorAll('.tipo');
+    let delay = 0;
+
+    lines.forEach(line => {
+      setTimeout(() => {
+        line.style.opacity = 1;
+        line.style.transition = 'opacity 1s ease-in';
+      }, delay);
+      delay += 1000;
+    });
+  </script>
+</body>
+</html>
